@@ -1,0 +1,41 @@
+知识点,类型,题干,选项A,选项B,选项C,选项D,选项E,选项F,答案（选择填ABCDEF，中间不能有空格 判断填A或B，填空题多空用逗号分隔）,试题解析（选填）,出题人
+缺省知识点,1-单选,maven的生命周期有几种？,3,2,1,4,,,A,,马杨成
+缺省知识点,1-单选,clean生命周期的目的是？,新建项目,打包项目,清理项目,移除项目,,,C,,马杨成
+缺省知识点,1-单选,default生命周期的目的是？,构建项目,清理项目,复制项目,移除项目,,,A,,马杨成
+缺省知识点,1-单选,site生命周期的目的是？,建立项目站点,清理项目,构建项目,复制项目,,,A,,马杨成
+缺省知识点,1-单选,maven的多个生命周期本身是（）的,相互依赖,相互独立,互不分离,部分依赖,,,B,,马杨成
+缺省知识点,1-单选,per-clean阶段可以执行哪些操作？,清理上一次构建生成的文件。,执行一些清理前需要完成的工作,执行一些清理后需要完成的工作。,生成项目站点文档。,,,B,,马杨成
+缺省知识点,1-单选,clean生命周期的clean阶段可以执行哪些操作？,执行一些清理后需要完成的工作。,执行一些清理前需要完成的工作,清理上一次构建生成的文件。,生成项目站点文档。,,,C,,马杨成
+缺省知识点,1-单选,每个maven的生命周期包含一些？,阶段（phase）,分区（partition）,事件（event）,块（block）,,,A,,马杨成
+缺省知识点,1-单选,调用clean生命周期的clean阶段的命令是？,$mvn clean,$mvn test,$mvn delete,$mvn remove,,,A,,马杨成
+缺省知识点,1-单选,以下不属于site生命周期的阶段的是？,pre-site,site,site-deploy,package,,,D,,马杨成
+缺省知识点,1-单选,$mvn test命令可以引发以下哪些操作？,调用default生命周期的test节点。,调用clean生命周期的clean阶段。,生成项目站点文档,清理上一次构件生成的文件。,,,A,,马杨成
+缺省知识点,1-单选,clean生命周期的clean阶段与以下哪个插件目标进行绑定？,maven-clean-plugin:test,maven-jar-plugin:jar,maven-clean-plugin:clean,  maven-install-plugin:install,,,C,,马杨成
+缺省知识点,1-单选,以下插件目标哪个和执行测试用例绑定的？,maven-surefire-plugin:test,maven-jar-plugin:jar,maven-clean-plugin:clean,  maven-install-plugin:install,,,A,,马杨成
+缺省知识点,1-单选,用户可以在Maven命令中使用什么参数，来配置插件目标的参数？,-D,-C,-E,-F,,,A,,马杨成
+缺省知识点,1-单选,maven命令行中查看mvn命令帮助的指令是？,mvn -he,mvn -h,mvn he,mvn --info,,,B,,马杨成
+缺省知识点,1-单选,可以清理项目的指令是哪个？,mvn install,mvn clean,mvn test,mvn compile,,,B,,马杨成
+缺省知识点,1-单选,如果想将项目部署安装到本地仓库，需要用到哪个指令？,mvn install,mvn clean,mvn test,mvn compile,,,A,,马杨成
+缺省知识点,1-单选,部署项目到远程仓库，使用哪个指令？,$mvn clean,$mvn test,$mvn deploy,$mvn remove,,,C,,马杨成
+缺省知识点,1-单选,在pom中配置插件的时候，哪个标签用来表示版本号？,groupId,artifactId,version,html,,,C,,马杨成
+缺省知识点,1-单选,mvn compile指令可以进行哪些操作？,发布项目,清理项目,删除项目,编译源代码,,,D,,马杨成
+缺省知识点,2-多选,以下属于maven生命周期的是？,clean,default,site,delete,,,ABC,,马杨成
+缺省知识点,2-多选,清理项目操作中，会用到哪些阶段？,per-clean,clean,post-clean,site,,,ABC,,马杨成
+缺省知识点,2-多选,以下哪些阶段属于site生命周期？,pre-site,site,post-site,site-deploy,,,ABCD,,马杨成
+缺省知识点,2-多选,default生命周期是所有生命周期中最核心的部分，以下哪些阶段属于default生命周期？,initialize,test,install,deploy,,,ABCD,,马杨成
+缺省知识点,2-多选,$mvn clean指令可能执行以下哪些阶段？,clean阶段,pre-clean阶段,test阶段,site阶段,,,AB,,马杨成
+缺省知识点,2-多选,在POM中配置maven插件，可能用到以下哪些标签？,groupId,artifactId,version,html,,,ABC,,马杨成
+缺省知识点,2-多选,以下哪些插件目标是属于default生命周期阶段的？,maven-compiler-plugin:compile,maven-surefire-plugin:test,maven-jar-plugin:jar,maven-install-plugin:install,,,ABCD,,马杨成
+缺省知识点,2-多选,以下哪些是maven的常用指令？,mvn compile,mvn deploy,mvn test,mvn site,,,ABCD,,马杨成
+缺省知识点,2-多选,关于maven生命周期说法正确的是？,maven有三个生命周期,clean生命周期的作用是构建项目,site生命周期的作用是建立项目站点,maven生命周期直接是相互依赖的关系,,,AC,,马杨成
+缺省知识点,2-多选,关于maven的指令说法错误的是？,mvn clean：发布项目,mvn test：将项目部署到本地仓库,mvn package：根据项目生成的jar,mvn compile：编译源代码,,,AB,,马杨成
+缺省知识点,0-判断,每个生命周期包含一些阶段（phase），这些阶段是有顺序的,,,,,,,A,,马杨成
+缺省知识点,0-判断,仅仅调用default阶段的时候不会触发其他生命周期的任何阶段,,,,,,,A,,马杨成
+缺省知识点,0-判断,clean生命周期的目的是建立项目站点,,,,,,,B,,马杨成
+缺省知识点,0-判断,Maven的生命周期与插件相互绑定，用以完成实际的构建任务,,,,,,,A,,马杨成
+缺省知识点,0-判断,compile阶段执行的任务是：编译主代码至主输出目录,,,,,,,A,,马杨成
+缺省知识点,0-判断,maven不可以自定义绑定插件目标,,,,,,,B,,马杨成
+缺省知识点,0-判断,插件目标 maven-install-plugin:install 执行的任务是：创建项目jar包,,,,,,,B,,马杨成
+缺省知识点,0-判断,site阶段对应的插件目标是：maven-site-plugin：site,,,,,,,A,,马杨成
+缺省知识点,0-判断,mvn install可以将项目发布到本地仓库,,,,,,,A,,马杨成
+缺省知识点,0-判断,mvn deploy可讲项目部署到远程仓库,,,,,,,A,,马杨成

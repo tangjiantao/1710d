@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liqian.movie.dao.MovieMapper">
+
+
+	<!-- 查询列表  -->
+	<select id="selects" resultType="Movie">
+		select * from t_movie 
+		<where>
+			<if test="null!=name and name!=''">
+				and name like '%${name}%'
+			</if>
+			<if test="null!=year and year!=0">
+				and year=${year}
+			</if>
+			<if test="null!=dateBegin and dateBegin!=''">
+				and datea>=#{dateBegin}
+			</if>
+			<if test="null!=dateEnd and dateEnd!=''">
+				and datea&lt;=#{dateEnd}
+			</if>
+			<if test="null!=longTimeBegin">
+				and longTime>=${longTimeBegin}
+			</if>
+			<if test="null!=longTimeEnd">
+				and longTime&lt;=${longTimeEnd}
+			</if>
+		</where>
+		<if test="null!=orderColumn and orderColumn!=''">
+				order by ${orderColumn} ${orderMethod}
+			</if>
+	</select>
+
+</mapper>

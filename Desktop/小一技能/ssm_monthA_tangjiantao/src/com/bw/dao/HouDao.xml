@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间的值为dao层接口的权限定名 -->
+<mapper namespace="com.bw.dao.HouDao">
+	<select id="list" resultMap="houseMap">
+		select * from house
+		
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="h_address!=null and h_address!=''"> and h_address like concat('%',#{h_address},'%')</if>
+		</trim>
+	</select>
+	
+	<resultMap type="House" id="houseMap">
+		<id property="h_id" column="h_id"/>
+		<result property="h_address" column="h_address"/>
+		<result property="h_use" column="h_use"/>
+		<result property="h_area" column="h_area"/>
+		<result property="h_pic" column="h_pic"/>
+		<collection property="owner" 
+		
+		select="com.bw.dao.HouDao.findHid"
+		column="h_id"
+		>
+		</collection>
+	</resultMap>
+	
+	<select id="findHid" resultType="Owner">
+		select * from owner join h_o on owner.o_id=h_o.oid
+		
+		where h_o.hid=#{hid}
+	</select>
+	
+	<select id="ownerAll" resultType="Owner">
+		select * from owner
+	</select>
+	
+	<insert id="add" useGeneratedKeys="true" keyProperty="h_id">
+		insert into house values(null,#{h_address},#{h_use},#{h_area},#{h_pic})
+	</insert>
+	
+	<insert id="addHO">
+		insert into h_o values
+		<foreach collection="oids" item="oids" separator=",">
+			(#{h_id},#{oids})
+		</foreach>
+	</insert>
+	
+	<select id="selectOne" resultMap="houseMap">
+		select * from house where h_id=#{h_id}
+	</select>
+	
+	<update id="update">
+		update house set h_address=#{h_address},h_use=#{h_use},h_area=#{h_area},h_pic=#{h_pic} where h_id=#{h_id}
+	</update>
+	
+	<delete id="delHO">
+		delete from h_o where hid=#{h_id}
+	</delete>
+	
+	<select id="login" resultType="java.lang.Integer">
+		select count(*) from sysuser where user_name=#{username} and user_password=#{password}
+	</select>
+</mapper>
